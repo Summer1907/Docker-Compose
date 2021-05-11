@@ -3,7 +3,13 @@ services:
   web:
     build: .
     ports:
-      - "5000:5000"
+      - "7000:7000"
   redis:
     image: "redis:alpine"
-
+  db:
+      environment:
+        ACCEPT_EULA: "Y"
+        SA_PASSWORD: azerty
+      expose: 
+        - 1433
+      image: microsoft/mssql-server-linux
